@@ -1,0 +1,434 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Navigation -->
+<nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl font-bold text-gradient">
+                Chiluveri Chethan Kumar
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-gray-700 hover:text-purple-600 transition-colors">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-purple-600 transition-colors">About</a>
+                <a href="#skills" class="text-gray-700 hover:text-purple-600 transition-colors">Skills</a>
+                <a href="#projects" class="text-gray-700 hover:text-purple-600 transition-colors">Projects</a>
+                <a href="#experience" class="text-gray-700 hover:text-purple-600 transition-colors">Experience</a>
+                <a href="#education" class="text-gray-700 hover:text-purple-600 transition-colors">Education</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors">Contact</a>
+                <a href="{{ MEDIA_URL }}docs/chethankumarchiluver.pdf" download
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors btn btn-primary">
+                <i class="fas fa-download mr-2"></i>Download Resume
+                </a>
+                </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-gray-700 hover:text-purple-600" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 bg-white shadow-lg rounded-lg">
+            <div class="flex flex-col space-y-4 px-6">
+                <a href="#home" class="text-gray-700 hover:text-purple-600 transition-colors mobile-menu-link">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-purple-600 transition-colors mobile-menu-link">About</a>
+                <a href="#skills" class="text-gray-700 hover:text-purple-600 transition-colors mobile-menu-link">Skills</a>
+                <a href="#projects" class="text-gray-700 hover:text-purple-600 transition-colors mobile-menu-link">Projects</a>
+                <a href="#experience" class="text-gray-700 hover:text-purple-600 transition-colors mobile-menu-link">Experience</a>
+                <a href="#education" class="text-gray-700 hover:text-purple-600 transition-colors mobile-menu-link">Education</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors mobile-menu-link">Contact</a>
+                <a href="{{ MEDIA_URL }}docs/chethankumarchiluver.pdf" download
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors btn btn-primary">
+                <i class="fas fa-download mr-2"></i>Download Resume
+                </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center">
+    <div class="container mx-auto px-6 text-center text-white">
+        <div data-aos="fade-up">
+            <div class="w-48 h-48 mx-auto mb-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center overflow-hidden shadow-lg">
+                {% load static %}
+                <img src="{% static 'Chethan.jpg' %}" alt="Chethan Kumar" class="w-full h-full object-cover object-center">
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                {{ personal_info.name }}
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-light mb-6">
+                {{ personal_info.title }}
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
+                {{ personal_info.tagline }}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Get In Touch
+                </a>
+                <a href="#projects" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                    View My Work
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<!-- About Section -->
+<section id="about" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6 flex justify-center">
+        <div class="text-center max-w-2xl" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+            <div class="w-24 h-1 bg-purple-600 mx-auto mb-8"></div>
+            
+            <div data-aos="fade-left">
+                <h3 class="text-2xl font-bold text-white mb-6">Full-Stack Developer & Data Scientist</h3>
+                <p class="text-gray-200 mb-6 leading-relaxed">
+                    {{ personal_info.tagline }}
+                </p>
+                <p class="text-gray-200 mb-6 leading-relaxed">
+                    I'm passionate about creating innovative solutions that bridge the gap between complex data insights and user-friendly applications. With experience in both enterprise-level development and cutting-edge machine learning projects, I bring a unique perspective to every challenge.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <h4 class="font-semibold text-white">Phone:</h4>
+                        <p class="text-gray-200">{{ personal_info.phone }}</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white">Email:</h4>
+                        <p class="text-gray-200">{{ personal_info.email }}</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center space-x-4">
+                    <a href="{{ personal_info.linkedin }}" target="_blank" class="text-purple-600 hover:text-purple-800 text-2xl">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="{{ personal_info.portfolio }}" target="_blank" class="text-purple-600 hover:text-purple-800 text-2xl">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">Skills & Expertise</h2>
+            <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Technical Skills -->
+            <div class="bg-white p-6 rounded-lg shadow-lg card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-center mb-4">
+                    <i class="fas fa-code text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Technical</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    {% for skill in skills.technical %}
+                    <span class="skill-tag bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Data Science Skills -->
+            <div class="bg-white p-6 rounded-lg shadow-lg card-hover" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center mb-4">
+                    <i class="fas fa-chart-line text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Data Science</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    {% for skill in skills.data_science %}
+                    <span class="skill-tag bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Frameworks -->
+            <div class="bg-white p-6 rounded-lg shadow-lg card-hover" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-center mb-4">
+                    <i class="fas fa-cogs text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Frameworks</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    {% for skill in skills.frameworks %}
+                    <span class="skill-tag bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Soft Skills -->
+            <div class="bg-white p-6 rounded-lg shadow-lg card-hover" data-aos="fade-up" data-aos-delay="400">
+                <div class="text-center mb-4">
+                    <i class="fas fa-users text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Soft Skills</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    {% for skill in skills.soft_skills %}
+                    <span class="skill-tag bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">Featured Projects</h2>
+            <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for project in projects %}
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-project-diagram text-2xl text-purple-600 mr-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800">{{ project.title }}</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">{{ project.description }}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% for tech in project.tech_stack %}
+                        <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-sm">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        {% if project.url %}
+                        <a href="{{ project.url }}" target="_blank" class="bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                            View Project <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Modal -->
+            <div id="project-modal-{{ forloop.counter }}" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('project-modal-{{ forloop.counter }}')">&times;</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ project.title }}</h2>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% for tech in project.tech_stack %}
+                        <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-sm">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">{{ project.details }}</p>
+                    {% if project.url %}
+                    <a href="{{ project.url }}" target="_blank" class="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+                        View Project <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">Work Experience</h2>
+            <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            {% for job in experience %}
+            <div class="relative pl-8 pb-12 timeline-item" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                {% if not forloop.last %}
+                <div class="timeline-line"></div>
+                {% endif %}
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">{{ job.title }}</h3>
+                            <p class="text-purple-600 font-semibold">{{ job.company }}</p>
+                        </div>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm mt-2 md:mt-0">
+                            {{ job.period }}
+                        </span>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        {% for responsibility in job.responsibilities %}
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mr-2 mt-1 flex-shrink-0"></i>
+                            {{ responsibility }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">Education</h2>
+            <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for edu in education %}
+            <div class="bg-white p-6 rounded-lg shadow-lg card-hover" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <div class="text-center mb-4">
+                    <i class="fas fa-graduation-cap text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800">{{ edu.degree }}</h3>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-600 mb-2">{{ edu.institution }}</p>
+                    <p class="text-purple-600 font-semibold mb-2">{{ edu.year }}</p>
+                    <p class="text-gray-800 font-semibold">CGPA: {{ edu.cgpa }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">Certifications</h2>
+            <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for cert in certifications %}
+            <div class="bg-white p-6 rounded-lg shadow-lg card-hover text-center" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                <i class="fas fa-certificate text-4xl text-purple-600 mb-4"></i>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">{{ cert.name }}</h3>
+                <p class="text-purple-600 font-semibold">{{ cert.issuer }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">Get In Touch</h2>
+            <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+            <p class="text-gray-200 mt-4 max-w-2xl mx-auto">
+                I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and innovation.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Contact Info -->
+            <div data-aos="fade-right">
+                <h3 class="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-purple-600 text-xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold text-white">Email</p>
+                            <p class="text-gray-200">{{ personal_info.email }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-purple-600 text-xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold text-white">Phone</p>
+                            <p class="text-gray-200">{{ personal_info.phone }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <i class="fas fa-globe text-purple-600 text-xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold text-white">Portfolio</p>
+                            <a href="{{ personal_info.portfolio }}" target="_blank" class="text-purple-600 hover:text-purple-800">{{ personal_info.portfolio }}</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="{{ personal_info.linkedin }}" target="_blank" class="bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="{{ personal_info.portfolio }}" target="_blank" class="bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition-colors">
+                        <i class="fas fa-globe text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div data-aos="fade-left">
+                <form id="contact-form" class="space-y-6">
+                    {% csrf_token %}
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-200 mb-2">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-900">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-200 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-900">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-200 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-900"></textarea>
+                    </div>
+                    
+                    <button type="submit" id="submit-btn" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                        <i class="fas fa-paper-plane mr-2"></i>Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8" style="background: linear-gradient(135deg, #3e4963 0%, #4b62a2 100%);">
+    <div class="container mx-auto px-6 text-center">
+        <p>&copy; 2025 {{ personal_info.name }}. All rights reserved.</p>
+        <p class="text-gray-300 mt-2">Built with Django & TailwindCSS</p>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+        link.addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.add('hidden');
+        });
+    });
+</script>
+{% endblock %}
