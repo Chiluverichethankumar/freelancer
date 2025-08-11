@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['yourdomain.com', 'localhost', '127.0.0.1', 'freelancer.up.railway.app']
+ALLOWED_HOSTS = ['freelancer.up.railway.app', 'localhost', '127.0.0.1']
 
 # Application definition
 
