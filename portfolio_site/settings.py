@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-your-secret-key-here'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['yourdomain.com', 'localhost', '127.0.0.1']  # Add your domain or IP
+ALLOWED_HOSTS = ['yourdomain.com', 'localhost', '127.0.0.1', 'freelancer.up.railway.app']
 
 # Application definition
 
