@@ -10,10 +10,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # ALLOWED_HOSTS = ['freelancer.up.railway.app', '.railway.app', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = config(
-    'ALLOWED_HOSTS',
-    default='localhost,127.0.0.1,freelancer.up.railway.app,.railway.app,chiluver_freelancer.onrender.com,chiluveri-freelancer.onrender.com'
-).split(',')
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
