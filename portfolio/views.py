@@ -15,9 +15,9 @@ def home(request):
     """Main portfolio page with all sections"""
     context = {
         'personal_info': {
-            'name': 'Chiluveri Chethan Kumar',
-            'title': 'Software Engineer || Full-Stack Developer || AI/ML',
-            'tagline': 'Motivated Software Engineer with expertise in full-stack development and machine learning, aiming to leverage Python, Django, and React Native to innovate in industrial automation and deliver data-driven solutions.',
+            'name': 'Chiluveri Chethankumar',
+            'title': 'Software Engineer | Full-Stack Developer | AI/ML Specialist',
+            'tagline': 'Dynamic engineer delivering innovative, data-driven solutions with Python, Django, React Native, AWS, and Google Cloud Storage. Builds secure, scalable platforms: SaaS CRMs, blockchain voting systems, and e-commerce apps. Optimizes workflows, achieving 15% cost savings via AI analytics. Creates user-focused AI chatbots and data dashboards with an Agile approach. Transform your vision connecat chiluverichethankumar@gmail.com or connect Get In Touch as bellow button',
             'phone': '+91 91824 19079',
             'email': 'chethankumarchiluveri@gmail.com',
             'linkedin': 'https://linkedin.com/in/chiluverichethankumar',

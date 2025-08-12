@@ -1,23 +1,19 @@
 from pathlib import Path
 import os
 from decouple import config
+import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: ALLOWED_HOSTS  the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['freelancer.up.railway.app', '.railway.app', 'localhost', '127.0.0.1']
-
-
-# Application definition
+# ALLOWED_HOSTS = ['freelancer.up.railway.app', '.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    default='localhost,127.0.0.1,freelancer.up.railway.app,.railway.app,chiluver_freelancer.onrender.com,chiluveri-freelancer.onrender.com'
+).split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -55,6 +51,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -66,21 +63,22 @@ WSGI_APPLICATION = 'portfolio_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         #'ENGINE': 'django.db.backends.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'VcqoYzuSNhkcyDUzgYgakHYlqQKxGyYa',
+#         'HOST': 'ballast.proxy.rlwy.net',
+#         'PORT': '54278',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'VcqoYzuSNhkcyDUzgYgakHYlqQKxGyYa',
-        'HOST': 'ballast.proxy.rlwy.net',
-        'PORT': '54278',
-    }
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
-# postgresql://postgres:VcqoYzuSNhkcyDUzgYgakHYlqQKxGyYa@ballast.proxy.rlwy.net:54278/railway
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -121,9 +119,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
