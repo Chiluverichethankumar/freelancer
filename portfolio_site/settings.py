@@ -71,9 +71,11 @@ WSGI_APPLICATION = 'portfolio_site.wsgi.application'
 #         'PORT': '54278',
 #     }
 # }
-
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
 }
 
 
